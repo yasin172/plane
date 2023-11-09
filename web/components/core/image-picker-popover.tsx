@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import { FC, ReactNode, useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { observer } from "mobx-react-lite";
@@ -31,7 +31,7 @@ const tabOptions = [
 ];
 
 type Props = {
-  label: string | React.ReactNode;
+  label: string | ReactNode;
   value: string | null;
   control: Control<any>;
   onChange: (data: string) => void;
@@ -41,7 +41,7 @@ type Props = {
 // services
 const fileService = new FileService();
 
-export const ImagePickerPopover: React.FC<Props> = observer((props) => {
+export const ImagePickerPopover: FC<Props> = observer((props) => {
   const { label, value, control, onChange, disabled = false } = props;
 
   const [image, setImage] = useState<File | null>(null);
